@@ -1,4 +1,0 @@
-hello
-hello feature
-hello remote-feature
-hello pull remote-feature
