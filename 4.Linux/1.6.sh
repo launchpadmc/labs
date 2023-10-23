@@ -2,5 +2,5 @@
 
 targetdir="$HOME/"
 
-ls $targetdir
+ls "$targetdir"
 

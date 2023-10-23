@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "Введите имя файла: " filename
+read -p "Введите имя файла:" filename
 
 if [ -f "$filename" ]; then
   echo "Содержимое файла $filename:"

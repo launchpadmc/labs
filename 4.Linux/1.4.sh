@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sourcefile="~/my_file.txt"
+sourcefile="$HOME/my_file.txt"
 tempdir="/tmp/"
 
 cp "$sourcefile" "$tempdir" &> /dev/null

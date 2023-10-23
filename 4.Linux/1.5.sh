@@ -1,6 +1,6 @@
 #!/bin/bash
 
-filetoremove="~/my_file.txt"
+filetoremove="$HOME/my_file.txt"
 
 if [ -e "$filetoremove" ]; then
   rm -f "$filetoremove"
