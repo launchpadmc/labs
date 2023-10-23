@@ -1,0 +1,36 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+config.vm.define "vm1" do |vm1|
+    vm1.vm.box = "generic/ubuntu2204"
+    vm1.vm.network "private_network", ip: "192.168.111.11"
+    vm1.vm.hostname = "vm1"
+    vm1.vm.provider :virtualbox do |m|
+      m.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      m.customize ["modifyvm", :id, "--memory", 1024]
+      m.customize ["modifyvm", :id, "--name", "vm1"]
+    end
+    vm1.vm.provision "shell", inline: <<-SHELL
+       sudo echo "192.168.111.12 vm2" | sudo tee -a /etc/hosts
+       sudo timedatectl set-timezone Europe/Warsaw
+       sudo apt install -y apache2
+    SHELL
+    end
+
+config.vm.define "vm2" do |vm2|
+    vm2.vm.box = "generic/ubuntu2304"
+    vm2.vm.network "private_network", ip: "192.168.111.12"
+    vm2.vm.hostname = "vm2"
+    vm2.vm.provider :virtualbox do |m|
+      m.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      m.customize ["modifyvm", :id, "--memory", 2048]
+      m.customize ["modifyvm", :id, "--name", "vm2"]
+    end
+      vm2.vm.provision "shell", inline: <<-SHELL
+       sudo echo "192.168.111.11 vm1" | sudo tee -a /etc/hosts
+       sudo timedatectl set-timezone Europe/Minsk
+       sudo apt -y install nginx
+    SHELL
+  end
+end

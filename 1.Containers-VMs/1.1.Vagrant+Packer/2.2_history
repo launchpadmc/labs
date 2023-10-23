@@ -1,0 +1,7 @@
+vagrant init -m generic/ubuntu2204
+
+vagrant up
+vagrant ssh vm1
+vagranr ssh vm2
+vagrant halt
+vagrant destroy
