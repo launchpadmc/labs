@@ -1,0 +1,12 @@
+version: '3'
+services:
+    web:
+      image: nginx:latest
+      ports:
+          - "80:80"
+      volumes:
+          - ./app:/usr/share/nginx/html
+    db:
+      image: postgres:latest
+      env_file:
+          - web-variables.env
