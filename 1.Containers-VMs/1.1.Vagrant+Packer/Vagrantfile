@@ -1,23 +1,14 @@
-vagrant init -m generic/ubuntu2204
-
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/ubuntu2204"
+# config.vm.provision "apache2", type: "shell", inline: "echo Installing Apache; apt-get install -y apache2"
+  config.vm.hostname = "ubuntu2204"
+  config.vm.network "forwarded_port", guest: 80, host: 8888
   config.vm.provider "virtualbox" do |vb|
     vb.name = "ubuntu2204"
     vb.memory = 2048
     vb.cpus = 2
-  end
-  
-  config.vm.hostname = "ubuntu2204"
-Vagrant::Config.run do |config|
-  config.vm.forward_port 80, 8080
+  end  
 end
-
-end
-vagrant up
-vagrant ssh
-vagrant halt
-vagrant destroy

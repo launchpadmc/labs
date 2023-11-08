@@ -1,0 +1,37 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+    - name: Update all packages in Debian-based machines
+      become: true
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 86400
+
+    - name: Install software (Debian-based OS)
+      apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      with_items:
+            - apache2
+
+    - name: Add the user 'nimda' with a specific uid and a primary group of 'admin'
+      ansible.builtin.user:
+        name: nimda
+        comment: True admin
+        uid: 1010
+        groups: adm,sudo
+    - name: Generate SSH Key Pair
+      ansible.builtin.user:
+        name: nimda
+        generate_ssh_key: yes
+        ssh_key_bits: 2048
+        ssh_key_file: .ssh/id_rsa
+    - name: Set authorized key taken from file
+      ansible.posix.authorized_key:
+        user: nimda
+        state: present
+        key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"

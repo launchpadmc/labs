@@ -1,0 +1,49 @@
+2023-10-23 22:08:03,667 p=79736 u=v.sushchevich n=ansible | PLAY [all] *********************************************************************
+2023-10-23 22:08:03,685 p=79736 u=v.sushchevich n=ansible | TASK [Gathering Facts] *********************************************************
+2023-10-23 22:08:06,234 p=79736 u=v.sushchevich n=ansible | ok: [default]
+2023-10-23 22:08:06,268 p=79736 u=v.sushchevich n=ansible | TASK [Create Text File with Timestamp] *****************************************
+2023-10-23 22:08:06,915 p=79736 u=v.sushchevich n=ansible | changed: [default]
+2023-10-23 22:08:06,928 p=79736 u=v.sushchevich n=ansible | TASK [Install software (Debian-based OS)] **************************************
+2023-10-23 22:08:11,298 p=79736 u=v.sushchevich n=ansible | ok: [default] => (item=nginx)
+2023-10-23 22:08:11,314 p=79736 u=v.sushchevich n=ansible | TASK [Create Cron Job for Regular Cleanup] *************************************
+2023-10-23 22:08:11,957 p=79736 u=v.sushchevich n=ansible | ok: [default]
+2023-10-23 22:08:11,997 p=79736 u=v.sushchevich n=ansible | PLAY RECAP *********************************************************************
+2023-10-23 22:08:11,997 p=79736 u=v.sushchevich n=ansible | default                    : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-23 22:13:52,523 p=80189 u=v.sushchevich n=ansible | PLAY [all] *********************************************************************
+2023-10-23 22:13:52,538 p=80189 u=v.sushchevich n=ansible | TASK [Gathering Facts] *********************************************************
+2023-10-23 22:13:55,138 p=80189 u=v.sushchevich n=ansible | ok: [default]
+2023-10-23 22:13:55,167 p=80189 u=v.sushchevich n=ansible | TASK [Create Text File with Timestamp] *****************************************
+2023-10-23 22:13:55,841 p=80189 u=v.sushchevich n=ansible | changed: [default]
+2023-10-23 22:13:55,854 p=80189 u=v.sushchevich n=ansible | TASK [Install software (Debian-based OS)] **************************************
+2023-10-23 22:13:59,366 p=80189 u=v.sushchevich n=ansible | ok: [default] => (item=nginx)
+2023-10-23 22:13:59,384 p=80189 u=v.sushchevich n=ansible | TASK [Log update] **************************************************************
+2023-10-23 22:13:59,426 p=80189 u=v.sushchevich n=ansible | ok: [default] => {
+    "update.stdout": "VARIABLE IS NOT DEFINED!"
+}
+2023-10-23 22:13:59,438 p=80189 u=v.sushchevich n=ansible | TASK [Create Cron Job for Regular Cleanup] *************************************
+2023-10-23 22:14:00,109 p=80189 u=v.sushchevich n=ansible | ok: [default]
+2023-10-23 22:14:00,125 p=80189 u=v.sushchevich n=ansible | TASK [Log cron] ****************************************************************
+2023-10-23 22:14:00,166 p=80189 u=v.sushchevich n=ansible | ok: [default] => {
+    "cron.stdout": "VARIABLE IS NOT DEFINED!"
+}
+2023-10-23 22:14:00,202 p=80189 u=v.sushchevich n=ansible | PLAY RECAP *********************************************************************
+2023-10-23 22:14:00,202 p=80189 u=v.sushchevich n=ansible | default                    : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-23 22:18:01,264 p=81774 u=v.sushchevich n=ansible | PLAY [all] *********************************************************************
+2023-10-23 22:18:01,280 p=81774 u=v.sushchevich n=ansible | TASK [Gathering Facts] *********************************************************
+2023-10-23 22:18:03,565 p=81774 u=v.sushchevich n=ansible | ok: [default]
+2023-10-23 22:18:03,596 p=81774 u=v.sushchevich n=ansible | TASK [Create Text File with Timestamp] *****************************************
+2023-10-23 22:18:04,237 p=81774 u=v.sushchevich n=ansible | changed: [default]
+2023-10-23 22:18:04,250 p=81774 u=v.sushchevich n=ansible | TASK [Install software (Debian-based OS)] **************************************
+2023-10-23 22:18:36,560 p=81774 u=v.sushchevich n=ansible | changed: [default] => (item=nginx)
+2023-10-23 22:18:36,582 p=81774 u=v.sushchevich n=ansible | TASK [Log update] **************************************************************
+2023-10-23 22:18:36,637 p=81774 u=v.sushchevich n=ansible | ok: [default] => {
+    "update.stdout": "VARIABLE IS NOT DEFINED!"
+}
+2023-10-23 22:18:36,659 p=81774 u=v.sushchevich n=ansible | TASK [Create Cron Job for Regular Cleanup] *************************************
+2023-10-23 22:18:37,449 p=81774 u=v.sushchevich n=ansible | changed: [default]
+2023-10-23 22:18:37,469 p=81774 u=v.sushchevich n=ansible | TASK [Log cron] ****************************************************************
+2023-10-23 22:18:37,518 p=81774 u=v.sushchevich n=ansible | ok: [default] => {
+    "cron.stdout": "VARIABLE IS NOT DEFINED!"
+}
+2023-10-23 22:18:37,559 p=81774 u=v.sushchevich n=ansible | PLAY RECAP *********************************************************************
+2023-10-23 22:18:37,559 p=81774 u=v.sushchevich n=ansible | default                    : ok=6    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
