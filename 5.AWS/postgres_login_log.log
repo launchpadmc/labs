@@ -1,0 +1,20 @@
+ubuntu@ip-172-16-12-32:~$ psql -h fuckoff.cjfzyfybv3uq.us-west-1.rds.amazonaws.com -U postgres
+Password for user postgres:
+psql (14.9 (Ubuntu 14.9-0ubuntu0.22.04.1), server 15.3)
+WARNING: psql major version 14, server major version 15.
+         Some psql features might not work.
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+postgres=>
+
+
+ubuntu@ip-172-16-19-153:~$ psql -h fuckoff.cjfzyfybv3uq.us-west-1.rds.amazonaws.com -U postgres
+Password for user postgres:
+psql (14.9 (Ubuntu 14.9-0ubuntu0.22.04.1), server 15.3)
+WARNING: psql major version 14, server major version 15.
+         Some psql features might not work.
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+postgres=>

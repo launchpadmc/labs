@@ -1,0 +1,19 @@
+ubuntu@ip-172-16-19-153:~$ redis-cli -h redis.5r4o74.clustercfg.usw1.cache.amazonaws.com -p 6379 PING
+PONG
+
+ubuntu@ip-172-16-12-32:~$ redis-cli -h redis.5r4o74.clustercfg.usw1.cache.amazonaws.com -p 6379 PING
+PONG
+
+ubuntu@ip-172-16-19-153:~$ telnet memcached.5r4o74.cfg.usw1.cache.amazonaws.com 11211
+Trying 172.16.8.118...
+Connected to memcached.5r4o74.cfg.usw1.cache.amazonaws.com.
+Escape character is '^]'.
+^^^]
+telnet> Connection closed.
+
+ubuntu@ip-172-16-12-32:~$ telnet memcached.5r4o74.cfg.usw1.cache.amazonaws.com 11211
+Trying 172.16.8.118...
+Connected to memcached.5r4o74.cfg.usw1.cache.amazonaws.com.
+Escape character is '^]'.
+^^^]
+telnet> Connection closed
