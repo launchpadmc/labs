@@ -1,0 +1,105 @@
+Started by user Kurwa, Bober
+Obtained Jenkinsfile from git https://github.com/launchpadmc/6-3-labs
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/docker forwarding
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/launchpadmc/6-3-labs
+ > git init /var/lib/jenkins/workspace/docker forwarding # timeout=10
+Fetching upstream changes from https://github.com/launchpadmc/6-3-labs
+ > git --version # timeout=10
+ > git --version # 'git version 2.34.1'
+ > git fetch --tags --force --progress -- https://github.com/launchpadmc/6-3-labs +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/launchpadmc/6-3-labs # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 3fc9a94b35d96710724730e241fcb13d1b5a2f6a (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 3fc9a94b35d96710724730e241fcb13d1b5a2f6a # timeout=10
+Commit message: "Create Jenkinsfile"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Setup SSH tunnel)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
++ ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/staging -nNT -L localhost:52222:/var/run/docker.sock ubuntu@ec2-13-57-37-232.us-west-1.compute.amazonaws.com
++ echo 4956
+Warning: Permanently added 'ec2-13-57-37-232.us-west-1.compute.amazonaws.com' (ED25519) to the list of known hosts.
+[Pipeline] sleep
+Sleeping for 5 sec
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
++ DOCKER_HOST=localhost:52222 docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+[Pipeline] sh
++ DOCKER_HOST=localhost:52222 docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                              PORTS     NAMES
+18266ba16b47   hello-world   "/hello"   1 second ago     Exited (0) Less than a second ago             pedantic_murdock
+8ac5e5038b84   hello-world   "/hello"   13 minutes ago   Exited (0) 13 minutes ago                     upbeat_ardinghelli
+77495777362e   hello-world   "/hello"   19 minutes ago   Exited (0) 19 minutes ago                     quirky_germain
+4d6136c3c62b   hello-world   "/hello"   2 hours ago      Exited (0) 2 hours ago                        jovial_dhawan
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
++ pkill -F /tmp/tunnel.pid
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
